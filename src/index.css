@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.dark {
+  @apply bg-gray-800 text-zinc-50
+}
+
+.light {
+  @apply bg-zinc-50 text-black
+}
+
+.navbar {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins';
+  
+}
