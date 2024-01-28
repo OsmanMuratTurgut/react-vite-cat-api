@@ -6,16 +6,16 @@ import {
   Bars3Icon,
   HeartIcon,
   } from "@heroicons/react/24/outline";
+import { NavLink } from 'react-router-dom';
 
 
  function Nav(props) {
     const [toggleMenu, setToggleMenu] = useState(false);
     const navItems = [
-        { id: 1, text: "Ana Sayfa" },
-        { id: 2, text: "Kategoriler" },
-        { id: 3, text: "Yorumlar" },
-        { id: 4, text: "Hakkımızda" },
-        { id: 5, text: "İletişim" },
+      { id: 1, text: "Ana Sayfa" , path: "/"},
+      { id: 2, text: "Fetch", path: "/fetch-categories"},
+      { id: 3, text: "Axios", path: "/axios-categories"},
+      { id: 4, text: "RTK Query", path: "/rtk-query-categories"},
       ];
   return (
     <div className='navbar bg-gray-100 dark:bg-gray-600 border-b'>
@@ -26,20 +26,22 @@ import {
             <div className="flex items-center gap-16 my-12">
            
               <div>
-                <a
-                  href="/"
+                <NavLink
+                  to="/"
                   className="flex gap-1 font-bold text-gray-700 dark:text-gray-200 items-center "
                 >
                   <HeartIcon className="h-6 w-6 text-primary" />
-                  <span>Logo</span>
-                </a>
+                  <span>Cat API</span>
+                </NavLink>
               </div>
             
               <ul className="hidden lg:flex gap-8 ">
               {navItems.map((item) => (
-                <li className="cursor-pointer" key={item.id}>
+                <NavLink
+                to={item.path}
+                className="cursor-pointer" key={item.id}>
                   {item.text}
-                </li>
+                </NavLink>
               ))}
               </ul>
             </div>
@@ -73,13 +75,14 @@ import {
           <div className="px-8">
             <ul className="flex flex-col gap-8 font-bold tracking-wider">
             {navItems.map((item) => (
-              <li
+              <NavLink
+                to={item.path}
                 key={item.id}
                 className="cursor-pointer text-center"
                 onClick={() => setToggleMenu(!toggleMenu)}
               >
                 {item.text}
-              </li>
+              </NavLink>
             ))}
             </ul>
           </div>
